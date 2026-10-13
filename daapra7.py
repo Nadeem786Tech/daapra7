@@ -20,3 +20,34 @@ while queue:
                                              if neighbour not in visited:
                                                                          visited.append(neighbour)
                                                                          queue.append(neighbour)
+
+Q2
+graph = {
+    0: [1, 2],
+    1: [0, 3, 4],
+    2: [0, 5],
+    3: [1],
+    4: [1],
+    5: [2]
+}
+
+visited = []
+stack = []
+start = 0
+
+stack.append(start)
+
+print("DFS Traversal:", end=" ")
+
+while stack:
+    vertex = stack.pop()
+
+    if vertex not in visited:
+        visited.append(vertex)
+        print(vertex, end=" ")
+
+        for neighbour in reversed(graph[vertex]):
+            if neighbour not in visited:
+                stack.append(neighbour)
+
+print()
